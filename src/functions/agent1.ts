@@ -66,16 +66,19 @@ export async function agent1(request: HttpRequest, context: InvocationContext): 
       messages: [new HumanMessage('Wer ist deutscher Meister 2025 im Fußball? Antworte mit einem sehr langen Text.')],
     };
 
+    let result = '';
+
     for await (const chunk of await graph.stream(inputs, {
       streamMode: 'updates',
     })) {
       // console.log(chunk['messages']);
+      result = JSON.stringify(chunk);
       console.log(chunk);
       console.log('\n=========================s\n');
     }
     return {
       status: 200,
-      body: JSON.stringify({ message: 'Hello, world!' + toolNode.toJSON }),
+      body: JSON.stringify({ message: 'Hello, world!' + result }),
     };
   } catch (error) {
     return {
