@@ -1,0 +1,27 @@
+{
+  "name": "langgraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@langchain/community": "^0.3.36",
+    "@langchain/core": "^0.3.42",
+    "@langchain/langgraph": "^0.2.67",
+    "@langchain/openai": "^0.5.11"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "azure-functions-core-tools": "^4.x",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.8.3"
+  }
+}
